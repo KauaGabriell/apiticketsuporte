@@ -1,18 +1,17 @@
+import { createTicket } from '../controllers/tickets/create.js';
+import { listTicket } from '../controllers/tickets/list.js';
+
 export const tickets = [
   // Criar Ticket
   {
     method: 'POST',
     path: '/tickets',
-    controller: (req, res) => {
-      res.end('Criado com sucesso');
-    },
+    controller: createTicket,
   },
 
   {
     method: 'GET',
     path: '/tickets',
-    controller: (req, res) => {
-      res.end('Listado com Sucesso');
-    },
+    controller: listTicket,
   },
 ];
