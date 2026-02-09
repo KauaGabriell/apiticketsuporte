@@ -2,7 +2,7 @@
 import { randomUUID } from 'node:crypto';
 
 // Controller para criar um novo ticket de suporte
-export function createTicket({ req, res }) {
+export function createTicket({ req, res, database }) {
   // Extrai os dados do corpo da requisição
   const { equipment, description, user_name } = req.body;
 
@@ -17,6 +17,8 @@ export function createTicket({ req, res }) {
     updated_at: new Date(),
   };
 
+  database.insert('tickets', ticket);
+
   // Retorna o ticket criado como JSON
-  return res.end(JSON.stringify(ticket));
+  return res.writeHead(201).end(JSON.stringify(ticket));
 }
