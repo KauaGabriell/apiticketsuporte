@@ -1,3 +1,6 @@
 export function updateTicket({ req, res, database }) {
-  return res.end('Ok');
+  const { id } = req.params;
+  const { equipment, description } = req.body;
+  
+  return res.end();
 }
