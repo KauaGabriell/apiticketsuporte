@@ -1,5 +1,6 @@
 import { createTicket } from '../controllers/tickets/create.js';
 import { listTicket } from '../controllers/tickets/list.js';
+import { updateTicket } from '../controllers/tickets/update.js';
 
 export const tickets = [
   // Criar Ticket
@@ -13,5 +14,10 @@ export const tickets = [
     method: 'GET',
     path: '/tickets',
     controller: listTicket,
+  },
+  {
+    method: 'PUT',
+    path: '/tickets/:id',
+    controller: updateTicket,
   },
 ];
